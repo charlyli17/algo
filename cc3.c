@@ -118,6 +118,7 @@ Arbre parcoursLargeur(Arbre a)
     }
     Pile p = initP();
     p = empiler(a, p);
+    return p;
 }
 
 void main()
