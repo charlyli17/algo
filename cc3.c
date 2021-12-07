@@ -42,9 +42,9 @@ int estEquilibre (Arbre a){
     int cpi=0;
 
     if((a->donnee)%2==0){
-        return cpp+=1+estEquilibre(a->fg)+estEquilibre(a->fd);
+        cpp+=1+estEquilibre(a->fg)+estEquilibre(a->fd);
     }else{
-        return cpi+=1+estEquilibre(a->fg)+estEquilibre(a->fd);
+        cpi+=1+estEquilibre(a->fg)+estEquilibre(a->fd);
     }
 
     return (cpp==cpi) ? 1:0;
@@ -59,11 +59,42 @@ Arbre creatFeuille(TElement elt){
     return a;
 }
 
+Arbre estVideA(Arbre a){
+    if(a==NULL){
+        return 1;
+    }
+    return 0;
+}
+
 Arbre creatNoeud(TElement elt, Arbre fg, Arbre fd){
     a=creatFeuille(elt);
     a->fg=fg;
     a->fd=fd;
     return a;
+}
+
+typedef struct cellule{
+    TElement donnee;
+    struct cellule *suivant;
+}*Pile;
+
+Pile initP(){
+    return NULL;
+}
+
+Pile empiler(TElement elt, Pile p){
+    Pile newp=NULL;
+    newp=(Pile)malloc(sizeof(struct cellule));
+    newp->donnee=elt;
+    return newp;
+}
+
+Arbre parcoursLargeur(Arbre a){
+    if(estVideA(a)){
+        return NULL;
+    }
+    Pile p=initP();
+    
 }
 
 void main(){
